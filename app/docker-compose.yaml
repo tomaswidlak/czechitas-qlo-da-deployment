@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  qloapps:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    env_file:
+      - ../.env
+    ports:
+      - "8001:80"
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_SCHEMA: ${MYSQL_SCHEMA}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    volumes:
+      - ./appData:/var/www/html
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
