@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Check if the required arguments are provided
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <domain_name> <port>"
+  exit 1
+fi
+
+# Assign arguments to variables
+DOMAIN_NAME=$1
+PORT=$2
+
+# Create the Nginx server configuration
+sudo tee /etc/nginx/sites-available/${DOMAIN_NAME} > /dev/null <<EOL
+server {
+    listen 80;
+    server_name ${DOMAIN_NAME};
+
+    location / {
+        proxy_pass http://localhost:${PORT};  # point to your Docker container
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+    }
+}
+EOL
+
+# Enable the new server configuration
+sudo ln -s /etc/nginx/sites-available/${DOMAIN_NAME} /etc/nginx/sites-enabled/
+
+# Restart Nginx to apply the changes
+sudo systemctl restart nginx
+
+# Obtain an SSL certificate for the domain
+sudo certbot --nginx -d ${DOMAIN_NAME} --non-interactive --agree-tos --redirect --email info@test.com
