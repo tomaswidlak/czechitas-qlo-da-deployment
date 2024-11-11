@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Check if the required arguments are provided
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
+  echo "Usage: $0 <web_url> <mysql_schema> <mysql_user> <mysql_pass>"
+  exit 1
+fi
+
+# Assign arguments to variables
+WEB_URL=$1
+SH_MYSQL_SCHEMA=$2
+MYSQL_USER=$3
+MYSQL_PASS=$4
+
+# Create a temporary file for the modified seed.sql
+TEMP_SEED_FILE=$(mktemp)
+echo "Temporary seed file: $TEMP_SEED_FILE"
+
+# Copy the original seed.sql to the temporary file
+cp ./seed.sql "$TEMP_SEED_FILE"
+
+# Replace placeholders in the temporary seed.sql
+sed -i "s|\[\[SH_SCHEMA\]\]|${SH_MYSQL_SCHEMA}|g" "$TEMP_SEED_FILE"
+sed -i "s|\[\[SH_WEBURL\]\]|${WEB_URL}|g" "$TEMP_SEED_FILE"
+sed -i "s|\[\[SH_SCHEMA_USER\]\]|${MYSQL_USER}|g" "$TEMP_SEED_FILE"
+sed -i "s|\[\[SH_SCHEMA_PASS\]\]|${MYSQL_PASS}|g" "$TEMP_SEED_FILE"
+
+echo "Modified seed.sql:"
+head -n 15 "$TEMP_SEED_FILE"
+
+# Wait for 20 seconds
+sleep 20
+
+# Execute the MySQL command to import the temporary seed.sql file
+mysql -h ${MYSQL_SERVER} -u "${MYSQL_USER}" -p"${MYSQL_PASS}" "${SH_MYSQL_SCHEMA}" < "$TEMP_SEED_FILE"
+
+# Remove the temporary file
+rm "$TEMP_SEED_FILE"
