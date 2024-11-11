@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./volume/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_SCHEMA}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+    ports:
+      - "33060:3306"
+
+  DA_TEAM_A:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8801:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${MYSQL_SCHEMA}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/DATEAM_A:/var/www/html
+
+  DA_TEAM_B:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8802:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${MYSQL_SCHEMA}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/DATEAM_B:/var/www/html
