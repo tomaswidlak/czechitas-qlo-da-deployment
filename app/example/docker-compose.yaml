@@ -3,8 +3,6 @@ version: '3.7'
 services:
   qloapps:
     image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-    env_file:
-      - ../.env
     ports:
       - "8001:80"
     environment:
