@@ -1,13 +1,21 @@
 # Czechitas DA DEPLOYMENT
 
 
-## DB 
-```bash
-docker-compose -f mysql/docker-compose.yaml --env-file .env up -d 
+## SIMPLE
+
+### Deployment
+Running mysql DB and all instances in one docker compose
+```bash 
+cd simple
+docker-compose up -d
 ```
 
-## app 
+### Routing (nginx)
+
+Create new server config with the following command:
 ```bash
-docker-compose -f app/example/docker-compose.yaml --env-file .env up -d
+./create_nginx_config.sh sub.example.com 8801
 ```
+ 
+
 
