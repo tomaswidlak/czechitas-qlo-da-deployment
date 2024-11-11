@@ -5,6 +5,7 @@ services:
     image: mysql:5.7
     volumes:
       - ./volume/mysql:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ${MYSQL_SCHEMA}
@@ -12,6 +13,19 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASS}
     ports:
       - "33060:3306"
+
+  seeder:
+    image: mysql:5.7  # Use the MySQL image to run the MySQL client
+    depends_on:
+      - mysql
+    volumes:
+      - ./db-init/seed.sql:/seed.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_SCHEMA}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+    entrypoint: ["sh", "-c", "sleep 10; mysql -h mysql -u ${MYSQL_USER} -p${MYSQL_PASS} ${MYSQL_SCHEMA} < /seed.sql"]
 
   DA_TEAM_A:
     image: docker.io/tomaswidlak/czechitas-qloapps:legacy
@@ -29,18 +43,18 @@ services:
     volumes:
       - ./volume/DATEAM_A:/var/www/html
 
-  DA_TEAM_B:
-    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-    ports:
-      - "8802:80"
-    environment:
-      ENV_MYSQL_SCHEMA: ${MYSQL_SCHEMA}
-      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-      ENV_MYSQL_USER: ${MYSQL_USER}
-      ENV_MYSQL_PASS: ${MYSQL_PASS}
-      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-    depends_on:
-      - mysql
-    volumes:
-      - ./volume/DATEAM_B:/var/www/html
+#  DA_TEAM_B:
+#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+#    ports:
+#      - "8802:80"
+#    environment:
+#      ENV_MYSQL_SCHEMA: ${MYSQL_SCHEMA}
+#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+#      ENV_MYSQL_USER: ${MYSQL_USER}
+#      ENV_MYSQL_PASS: ${MYSQL_PASS}
+#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+#    depends_on:
+#      - mysql
+#    volumes:
+#      - ./volume/DATEAM_B:/var/www/html
