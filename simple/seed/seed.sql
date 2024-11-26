@@ -13,6 +13,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 SET @SERVER_DOMAIN = '[[SH_WEBURL]]';
 
 SET @maxReservationDate = CONCAT('31-12-', YEAR(NOW())); -- DD-MM-YYYY
+SET @maxReservationDateYYYYMMDD = CONCAT(YEAR(NOW()), '-12-31 00:00:00'); -- DD-MM-YYYY
 
 
 DROP TABLE IF EXISTS `ps_access`;
@@ -4381,7 +4382,7 @@ CREATE TABLE `ps_htl_order_restrict_date` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `ps_htl_order_restrict_date` (`id`, `id_hotel`, `max_order_date`, `date_add`, `date_upd`) VALUES
-(1,	1,	'2024-09-30 00:00:00',	'2021-05-08 14:30:18',	'2024-05-23 23:12:07');
+(1,	1,	@maxReservationDateYYYYMMDD,	'2021-05-08 14:30:18',	'2024-05-23 23:12:07');
 
 DROP TABLE IF EXISTS `ps_htl_order_status`;
 CREATE TABLE `ps_htl_order_status` (
