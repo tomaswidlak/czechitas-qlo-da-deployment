@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/app/example/appData/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datoph2024-avada-bug-kedavra/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datoph2024-bug-hunters/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datoph2024-bugbusters/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datoph2024-pest-control/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-bug-hunters/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-debugitas/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-gadzitky/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-ladybugs/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-testrix/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/datpph2024-wee-buggy-vibes/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/simple/volume/t/modules/paypal/api/sdk/braintree/lib" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
