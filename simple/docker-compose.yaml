@@ -46,7 +46,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_00}
-      ENV_WEB_URL: '${DA_TEAM_00}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_00}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -82,7 +82,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_01}
-      ENV_WEB_URL: '${DA_TEAM_01}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_01}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -120,7 +120,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_02}
-      ENV_WEB_URL: '${DA_TEAM_02}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_02}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -160,7 +160,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_03}
-      ENV_WEB_URL: '${DA_TEAM_03}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_03}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -200,7 +200,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_04}
-      ENV_WEB_URL: '${DA_TEAM_04}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_04}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -240,7 +240,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_05}
-      ENV_WEB_URL: '${DA_TEAM_05}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_05}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -280,7 +280,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_06}
-      ENV_WEB_URL: '${DA_TEAM_06}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_06}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -321,7 +321,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_07}
-      ENV_WEB_URL: '${DA_TEAM_07}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_07}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -362,7 +362,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_08}
-      ENV_WEB_URL: '${DA_TEAM_08}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_08}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -400,7 +400,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_09}
-      ENV_WEB_URL: '${DA_TEAM_09}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_09}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: [ "sh", "-c", "/seed.sh" ]
 
 
@@ -441,7 +441,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_10}
-      ENV_WEB_URL: '${DA_TEAM_10}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_10}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: [ "sh", "-c", "/seed.sh" ]
 
 
@@ -479,7 +479,7 @@ services:
       ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
       ENV_MYSQL_SCHEMA: ${DA_TEAM_11}
-      ENV_WEB_URL: '${DA_TEAM_11}.czechitas.fun'
+      ENV_WEB_URL: '${DA_TEAM_11}.${DA_BASE_HOSTING_DOMAIN}'
     entrypoint: ["sh", "-c", "/seed.sh"]
 
 
@@ -518,7 +518,7 @@ services:
 #      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 #
 #      ENV_MYSQL_SCHEMA: ${DA_TEAM_01}
-#      ENV_WEB_URL: '${DA_TEAM_01}.czechitas.fun'
+#      ENV_WEB_URL: '${DA_TEAM_01}.${DA_BASE_HOSTING_DOMAIN}'
 #    entrypoint: ["sh", "-c", "/seed.sh"]
 #
 #
