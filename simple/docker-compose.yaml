@@ -262,206 +262,243 @@ services:
 
 
 
-#
-#
-#
-#  # TEAM setup DA_TEAM_06
-#  seeder_DA_TEAM_06:
-#    image: mysql:5.7
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./seed/seed.sql:/seed.sql
-#      - ./seed/seed.sh:/seed.sh
-#    environment:
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
-#      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_06}
-#      ENV_WEB_URL: '${DA_TEAM_06}.czechitas.fun'
-#    entrypoint: ["sh", "-c", "/seed.sh"]
-#
-#
-#  app_DA_TEAM_06:
-#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-#    ports:
-#      - "8806:80"
-#    environment:
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_06}
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASS: ${MYSQL_PASS}
-#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./volume/${DA_TEAM_06}:/var/www/html
-#
-#
-#
-#
-#
-#
-#
-#  # TEAM setup DA_TEAM_07
-#  seeder_DA_TEAM_07:
-#    image: mysql:5.7
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./seed/seed.sql:/seed.sql
-#      - ./seed/seed.sh:/seed.sh
-#    environment:
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
-#      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_07}
-#      ENV_WEB_URL: '${DA_TEAM_07}.czechitas.fun'
-#    entrypoint: ["sh", "-c", "/seed.sh"]
-#
-#
-#  app_DA_TEAM_07:
-#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-#    ports:
-#      - "8807:80"
-#    environment:
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_07}
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASS: ${MYSQL_PASS}
-#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./volume/${DA_TEAM_07}:/var/www/html
-#
-#
-#
-#
-#
-#
-#
-#  # TEAM setup DA_TEAM_08
-#  seeder_DA_TEAM_08:
-#    image: mysql:5.7
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./seed/seed.sql:/seed.sql
-#      - ./seed/seed.sh:/seed.sh
-#    environment:
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
-#      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_08}
-#      ENV_WEB_URL: '${DA_TEAM_08}.czechitas.fun'
-#    entrypoint: ["sh", "-c", "/seed.sh"]
-#
-#
-#  app_DA_TEAM_08:
-#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-#    ports:
-#      - "8808:80"
-#    environment:
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_08}
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASS: ${MYSQL_PASS}
-#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./volume/${DA_TEAM_08}:/var/www/html
-#
-#
-#
-#
-#  # TEAM setup DA_TEAM_09
-#  seeder_DA_TEAM_09:
-#    image: mysql:5.7
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./seed/seed.sql:/seed.sql
-#      - ./seed/seed.sh:/seed.sh
-#    environment:
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
-#      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_09}
-#      ENV_WEB_URL: '${DA_TEAM_09}.czechitas.fun'
-#    entrypoint: [ "sh", "-c", "/seed.sh" ]
-#
-#
-#  app_DA_TEAM_09:
-#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-#    ports:
-#      - "8809:80"
-#    environment:
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_09}
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASS: ${MYSQL_PASS}
-#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./volume/${DA_TEAM_09}:/var/www/html
-#
-#
-#
-#
-#
-#
-#
-#  # TEAM setup DA_TEAM_10
-#  seeder_DA_TEAM_10:
-#    image: mysql:5.7
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./seed/seed.sql:/seed.sql
-#      - ./seed/seed.sh:/seed.sh
-#    environment:
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
-#      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_10}
-#      ENV_WEB_URL: '${DA_TEAM_10}.czechitas.fun'
-#    entrypoint: [ "sh", "-c", "/seed.sh" ]
-#
-#
-#  app_DA_TEAM_10:
-#    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
-#    ports:
-#      - "8810:80"
-#    environment:
-#      ENV_MYSQL_SCHEMA: ${DA_TEAM_10}
-#      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
-#      ENV_MYSQL_USER: ${MYSQL_USER}
-#      ENV_MYSQL_PASS: ${MYSQL_PASS}
-#      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
-#      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
-#    depends_on:
-#      - mysql
-#    volumes:
-#      - ./volume/${DA_TEAM_10}:/var/www/html
-#
-#
+
+
+
+  # TEAM setup DA_TEAM_06
+  seeder_DA_TEAM_06:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_06}
+      ENV_WEB_URL: '${DA_TEAM_06}.czechitas.fun'
+    entrypoint: ["sh", "-c", "/seed.sh"]
+
+
+  app_DA_TEAM_06:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8806:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_06}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_06}:/var/www/html
+
+
+
+
+
+
+
+  # TEAM setup DA_TEAM_07
+  seeder_DA_TEAM_07:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_07}
+      ENV_WEB_URL: '${DA_TEAM_07}.czechitas.fun'
+    entrypoint: ["sh", "-c", "/seed.sh"]
+
+
+  app_DA_TEAM_07:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8807:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_07}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_07}:/var/www/html
+
+
+
+
+
+
+
+  # TEAM setup DA_TEAM_08
+  seeder_DA_TEAM_08:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_08}
+      ENV_WEB_URL: '${DA_TEAM_08}.czechitas.fun'
+    entrypoint: ["sh", "-c", "/seed.sh"]
+
+
+  app_DA_TEAM_08:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8808:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_08}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_08}:/var/www/html
+
+
+
+
+  # TEAM setup DA_TEAM_09
+  seeder_DA_TEAM_09:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_09}
+      ENV_WEB_URL: '${DA_TEAM_09}.czechitas.fun'
+    entrypoint: [ "sh", "-c", "/seed.sh" ]
+
+
+  app_DA_TEAM_09:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8809:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_09}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_09}:/var/www/html
+
+
+
+
+
+
+
+  # TEAM setup DA_TEAM_10
+  seeder_DA_TEAM_10:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_10}
+      ENV_WEB_URL: '${DA_TEAM_10}.czechitas.fun'
+    entrypoint: [ "sh", "-c", "/seed.sh" ]
+
+
+  app_DA_TEAM_10:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8810:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_10}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_10}:/var/www/html
+
+
+
+
+  # TEAM setup DA_TEAM_11
+  seeder_DA_TEAM_11:
+    image: mysql:5.7
+    depends_on:
+      - mysql
+    volumes:
+      - ./seed/seed.sql:/seed.sql
+      - ./seed/seed.sh:/seed.sh
+    environment:
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASSWORD: ${MYSQL_PASS}
+      ENV_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_11}
+      ENV_WEB_URL: '${DA_TEAM_11}.czechitas.fun'
+    entrypoint: ["sh", "-c", "/seed.sh"]
+
+
+  app_DA_TEAM_11:
+    image: docker.io/tomaswidlak/czechitas-qloapps:legacy
+    ports:
+      - "8811:80"
+    environment:
+      ENV_MYSQL_SCHEMA: ${DA_TEAM_11}
+      ENV_MYSQL_SERVER: ${MYSQL_SERVER}
+      ENV_MYSQL_USER: ${MYSQL_USER}
+      ENV_MYSQL_PASS: ${MYSQL_PASS}
+      ENV_MYSQL_PREFIX: ${MYSQL_PREFIX}
+      ENV_MYMODULE_API_TOKEN: ${API_TOKEN}
+    depends_on:
+      - mysql
+    volumes:
+      - ./volume/${DA_TEAM_11}:/var/www/html
+
 
 
 # # TEMPLATE
